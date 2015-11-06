@@ -45,7 +45,7 @@ function element_validate_input_letters($element) {
 
   foreach ($array_string as $letter) {
     if (in_array($letter, $non_dna_letters)) {
-      form_error($element, t('DNA nucleotides must only consist of letters A, T, C, or G'));
+      form_error($element, t('DNA nucleotides must only consist of letters A, T, C, or G.'));
       break;
     }
   }

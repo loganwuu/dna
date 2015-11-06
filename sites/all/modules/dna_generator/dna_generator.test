@@ -23,10 +23,16 @@ class dnaGeneratorTestCase extends DrupalUnitTestCase
     $expected_output = 'TAGC';
     $this->assertEqual($result, $expected_output, $description);
 
-    $description = 'Inputting BD should return error.';
+    $description = 'Inputting atcg should return TAGC.';
+    $input = 'atcg';
+    $result = dna_generator($input);
+    $expected_output = 'TAGC';
+    $this->assertEqual($result, $expected_output, $description);
+
+    $description = 'Inputting BD should return a error message.';
     $input = 'BD';
-    $result = dna_generator_form($input);
-    $expected_output = 'DNA nucleotides must only consist of letters A, T, C, or G';
+    $result = element_validate_input_letters($input);
+    $expected_output = t('DNA nucleotides must only consist of letters A, T, C, or G.');
     $this->assertEqual($result, $expected_output, $description);
   }
 }
