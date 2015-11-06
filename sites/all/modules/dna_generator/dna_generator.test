@@ -31,7 +31,7 @@ class dnaGeneratorTestCase extends DrupalUnitTestCase
 
     $description = 'Inputting BD should return a error message.';
     $input = 'BD';
-    $result = element_validate_input_letters($input);
+    $result = dna_generator($input);
     $expected_output = t('DNA nucleotides must only consist of letters A, T, C, or G.');
     $this->assertEqual($result, $expected_output, $description);
   }
@@ -75,11 +75,14 @@ class dnaGeneratorTestCase extends DrupalUnitTestCase
      }
 
      public function testFinalOutput() {
-         $this->drupalPost('dna_generator', 'dna_letters', 'Generate!');
+         //create a node to edit.
+         $edit = array();
+         $edit['dna_letters'] = 'ATCG';
+         $this->drupalPost('dna_generator', $edit, 'Generate!');
          // Navigate to the URL created by the Greeting module.
          $this->drupalGet('dna_generator_success_page');
          // Assert that the text we want to see is actually there on the page.
-         $this->assertText('Your input is: ATCG. The output DNA is: TAGC.', 'The input form is correct.');
+         $this->assertText('Your input is: ATCG. The output DNA is: TAGC.', 'The output on success page is correct.');
      }
 
  }
