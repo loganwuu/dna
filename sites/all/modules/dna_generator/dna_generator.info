@@ -1,0 +1,7 @@
+name = DNA Generator
+description = Displays the the output of both sides DNA helix with one side entered by the user.
+package = Epicodus Examples
+core = 7.x
+files[] = dna_generator.module
+files[] = dna_generator.test
+dependencies[] = simpletest
