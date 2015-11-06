@@ -12,7 +12,7 @@ This is a basic Drupal website which has an AJAX View module.
 * Users are only allowed to type in the letters A, T, C, G.
 * If the current index of one side has an "A" value, the other side has a "T" value.
 * If the current index of one side has a "C" value, the other side will have a "G" value.
-* Users can enter in one half of their DNA helix and the output should print both sides on the browser.
+* Users enter one half of their DNA helix and the output should print both sides on the browser.
 
 ## Setup
 
