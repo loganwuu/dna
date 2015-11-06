@@ -25,7 +25,7 @@ function dna_generator_form() {
     '#title' => 'DNA Letters',
     '#type' => 'textfield',
     '#description' => t('enter your DNA nucleotides letters'),
-    // '#element_validate' => array('element_validate_input_letters'),
+    '#element_validate' => array('element_validate_input_letters'),
     '#required' => TRUE,
   );
 
@@ -37,16 +37,18 @@ function dna_generator_form() {
   return $form;
 }
 
-// function element_validate_input_letters($element) {
-//   $array_string = str_split($element['#value']);
-//
-//   foreach ($array_string as $letter) {
-//     if ($letter != "A" || $letter != "T" || $letter != "C" || $letter != "G") {
-//       form_error($element, t('DNA nucleotides must only consist of letters A, T, C, or G'));
-//       break;
-//     }
-//   }
-// }
+function element_validate_input_letters($element) {
+  $array_string = str_split($element['#value']);
+
+  $non_dna_letters = array('B', 'D', 'E', 'F', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'U', 'V', 'W', 'X', 'Y', 'Z');
+
+  foreach ($array_string as $letter) {
+    if (in_array($letter, $non_dna_letters)) {
+      form_error($element, t('DNA nucleotides must only consist of letters A, T, C, or G'));
+      break;
+    }
+  }
+}
 
 function dna_generator_form_submit($form, &$form_state) {
   $input_string = $form_state['values']['dna_letters'];
