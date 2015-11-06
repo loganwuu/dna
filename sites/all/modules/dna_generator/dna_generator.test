@@ -7,21 +7,26 @@ class dnaGeneratorTestCase extends DrupalUnitTestCase
 {
   public static function getInfo()
   {
-
-      //just returns information about the tests in this class.
-      return array(
-      'name' => 'DNA Generator unit tests',
-      'description' => 'Test that dna_generator works properly.',
-      'group' => 'Epicodus Examples Tests',
-      );
+    //just returns information about the tests in this class.
+    return array(
+    'name' => 'DNA Generator unit tests',
+    'description' => 'Test that dna_generator works properly.',
+    'group' => 'Epicodus Examples Tests',
+    );
   }
 
   function testUserInput()
   {
-    $description = 'Inputting ATCG should return TRUE.';
+    $description = 'Inputting ATCG should return TAGC.';
     $input = 'ATCG';
     $result = dna_generator($input);
     $expected_output = 'TAGC';
+    $this->assertEqual($result, $expected_output, $description);
+
+    $description = 'Inputting BD should return error.';
+    $input = 'BD';
+    $result = dna_generator_form($input);
+    $expected_output = 'DNA nucleotides must only consist of letters A, T, C, or G';
     $this->assertEqual($result, $expected_output, $description);
   }
 }
@@ -61,6 +66,13 @@ class dnaGeneratorTestCase extends DrupalUnitTestCase
          $this->drupalGet('dna_generator');
          // Assert that the text we want to see is actually there on the page.
          $this->assertText('DNA Generator', 'The text on the page is correct.');
+     }
+
+     public function testFinalOutput() {
+         // Navigate to the URL created by the Greeting module.
+         $this->drupalGet('dna_generator_success_page');
+         // Assert that the text we want to see is actually there on the page.
+         $this->assertText('Your input is: ATCG. The output DNA is: TAGC.', 'The text on the page is correct.');
      }
 
  }
