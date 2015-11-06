@@ -24,8 +24,8 @@ function dna_generator_form() {
   $form['dna_letters'] = array(
     '#title' => 'DNA Letters',
     '#type' => 'textfield',
-    '#description' => t('enter the DNA nucleotides letters'),
-    '#element_validate' => array('element_validate_input_letters'),
+    '#description' => t('enter your DNA nucleotides letters'),
+    // '#element_validate' => array('element_validate_input_letters'),
     '#required' => TRUE,
   );
 
@@ -37,16 +37,16 @@ function dna_generator_form() {
   return $form;
 }
 
-function element_validate_input_letters($element) {
-  $array_string = str_split($element['#value']);
-
-  foreach ($array_string as $letter) {
-    if ($letter != "A" || $letter != "T" || $letter != "C" || $letter != "G") {
-      form_error($element, t('DNA nucleotides must only consist of letters A, T, C, or G'));
-      break;
-    }
-  }
-}
+// function element_validate_input_letters($element) {
+//   $array_string = str_split($element['#value']);
+//
+//   foreach ($array_string as $letter) {
+//     if ($letter != "A" || $letter != "T" || $letter != "C" || $letter != "G") {
+//       form_error($element, t('DNA nucleotides must only consist of letters A, T, C, or G'));
+//       break;
+//     }
+//   }
+// }
 
 function dna_generator_form_submit($form, &$form_state) {
   $input_string = $form_state['values']['dna_letters'];
@@ -72,8 +72,7 @@ function dna_generator($letters_string) {
     }
   }
 
-  $outout_string = implode("", $output_array);
-  return $output_string;
+  return implode("", $output_array);
 }
 
 function dna_generator_success() {
