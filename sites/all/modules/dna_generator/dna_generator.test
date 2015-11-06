@@ -33,7 +33,7 @@ class dnaGeneratorTestCase extends DrupalUnitTestCase
     $input = 'BD';
     $result = dna_generator($input);
     $expected_output = t('DNA nucleotides must only consist of letters A, T, C, or G.');
-    $this->assertEqual($result, $expected_output, $description);
+    $this->assertEqual($result, form_error($expected_output), $description);
   }
 }
 
