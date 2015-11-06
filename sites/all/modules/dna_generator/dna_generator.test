@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Unit tests for the simple Greeting module.
+ * Unit tests for the DNA Generator module.
  */
 class dnaGeneratorTestCase extends DrupalUnitTestCase
 {
@@ -40,7 +40,7 @@ class dnaGeneratorTestCase extends DrupalUnitTestCase
 
 /**
  * @file
- * Functional tests for the simple Greeting module.
+ * Functional tests for the DNA Generator module.
  */
  class GreetingTests extends DrupalWebTestCase {
    /**
