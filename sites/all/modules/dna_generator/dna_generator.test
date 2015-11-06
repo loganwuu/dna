@@ -1,0 +1,27 @@
+<?php
+/**
+ * @file
+ * Functional and unit tests for the simple Greeting module.
+ */
+class dnaGeneratorTestCase extends DrupalUnitTestCase
+{
+  public static function getInfo()
+  {
+
+      //just returns information about the tests in this class.
+      return array(
+      'name' => 'My Date unit tests',
+      'description' => 'Test that mydate_empty_mysql_date works properly.',
+      'group' => 'Epicodus Examples Tests',
+      );
+  }
+
+  function testUserInput()
+  {
+    $description = 'Inputting ATCG should return TRUE.';
+    $input = 'ATCG';
+    $result = dna_generator($input);
+    $expected_output = 'TAGC';
+    $this->assertEqual($result, $expected_output, $description);
+  }
+}
