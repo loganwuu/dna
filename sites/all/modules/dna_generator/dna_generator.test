@@ -72,7 +72,7 @@ class dnaGeneratorTestCase extends DrupalUnitTestCase
          // Navigate to the URL created by the Greeting module.
          $this->drupalGet('dna_generator_success_page');
          // Assert that the text we want to see is actually there on the page.
-         $this->assertText('Your input is: ATCG. The output DNA is: TAGC.', 'The text on the page is correct.');
+         $this->assertText('Your input is: ATCG. The output DNA is: TAGC.', 'The output on the page is correct.');
      }
 
  }

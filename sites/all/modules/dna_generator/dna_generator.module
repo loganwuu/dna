@@ -38,7 +38,8 @@ function dna_generator_form() {
 }
 
 function element_validate_input_letters($element) {
-  $array_string = str_split($element['#value']);
+  $upper_input_string = strtoupper($element['#value']);
+  $array_string = str_split($upper_input_string);
 
   $non_dna_letters = array('B', 'D', 'E', 'F', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'U', 'V', 'W', 'X', 'Y', 'Z');
 
@@ -54,12 +55,13 @@ function dna_generator_form_submit($form, &$form_state) {
   $input_string = $form_state['values']['dna_letters'];
   $result = dna_generator($input_string);
   $_SESSION['final_string'] = $result;
-  $_SESSION['input'] = $input_string;
+  $_SESSION['input'] = strtoupper($input_string);
   $form_state['redirect'] = 'dna_generator_success_page';
 }
 
 function dna_generator($letters_string) {
-  $array_letters = str_split($letters_string);
+  $upper_letters_string = strtoupper($letters_string);
+  $array_letters = str_split($upper_letters_string);
   $output_array = array();
 
   foreach ($array_letters as $letter) {
