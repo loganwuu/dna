@@ -79,5 +79,5 @@ function dna_generator($letters_string) {
 function dna_generator_success() {
   $answer = $_SESSION['final_string'];
   $input = $_SESSION['input'];
-  return 'Your input is: <strong>' . $input '</strong>. The output DNA is: <strong>' . $answer . '</strong>.';
+  return 'Your input is: <strong>' . $input . '</strong>. The output DNA is: <strong>' . $answer . '</strong>.';
 }

@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Functional and unit tests for the simple Greeting module.
+ * Unit tests for the simple Greeting module.
  */
 class dnaGeneratorTestCase extends DrupalUnitTestCase
 {
@@ -10,8 +10,8 @@ class dnaGeneratorTestCase extends DrupalUnitTestCase
 
       //just returns information about the tests in this class.
       return array(
-      'name' => 'My Date unit tests',
-      'description' => 'Test that mydate_empty_mysql_date works properly.',
+      'name' => 'DNA Generator unit tests',
+      'description' => 'Test that dna_generator works properly.',
       'group' => 'Epicodus Examples Tests',
       );
   }
@@ -25,3 +25,9 @@ class dnaGeneratorTestCase extends DrupalUnitTestCase
     $this->assertEqual($result, $expected_output, $description);
   }
 }
+
+
+/**
+ * @file
+ * Functional tests for the simple Greeting module.
+ */
